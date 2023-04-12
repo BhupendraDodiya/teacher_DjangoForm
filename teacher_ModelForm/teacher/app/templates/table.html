@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1px solid black" cellpadding="10px">
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>DOB</th>
+                <th>GENDER</th>
+                <th>HOBBY</th>
+                <th>IMAGE</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.age}}</td>
+                <td>{{i.dob}}</td>
+                <td>{{i.gender}}</td>
+                <td>{{i.hobby}}</td>
+                <td><img src='{{i.image.url}}' height="70px" width="70px"/></td>
+                <td><a href="{% url 'update' i.id %}">EDIT</a></td>
+                <td><a href="/delete/{{i.id}}">DELETE</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
